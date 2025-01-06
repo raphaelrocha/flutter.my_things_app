@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Alterar foto",
+    "action": "change-picture"
+  },
+  {
+    "label": "Alterar senha",
+    "action": "change-password"
+  },
+  {
+    "label": "Sair",
+    "action": "logout"
+  }
+]

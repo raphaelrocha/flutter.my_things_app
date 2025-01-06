@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:my_thyngs_app/controllers/auth_controller.dart';
+import 'package:my_thyngs_app/screens/home_screen.dart';
 import 'package:my_thyngs_app/screens/login_screen.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
-  runApp(const MyApp());
+
+  final String? token = await AuthController().getAuthToken();
+
+  runApp(MyApp(initialRoute: token != null ? 'home' : 'login'));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String initialRoute;
+
+  const MyApp({super.key, required this.initialRoute});
 
   // This widget is the root of your application.
   @override
@@ -34,7 +41,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      initialRoute: initialRoute,
+      routes: {
+        'login': (context) => LoginScreen(),
+        'home': (context) => HomeScreen(),
+      },
     );
   }
 }

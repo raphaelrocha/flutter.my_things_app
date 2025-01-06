@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Finanças",
+    "action": "go-to-finance"
+  },
+  {
+    "label": "Extrato",
+    "action": "go-to-balance"
+  },
+  {
+    "label": "Agenda",
+    "action": "go-to-calendar"
+  },
+  {
+    "label": "Estatísticas",
+    "action": "go-to-analytics"
+  },
+  {
+    "label": "Notas",
+    "action": "go-to-notes"
+  }
+]
